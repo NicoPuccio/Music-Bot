@@ -10,12 +10,15 @@ client.login(token);
 
 client.once('ready', () => {
     console.log('Ready!');
+    return;
 });
 client.once('reconnecting', () => {
     console.log('Reconnecting!');
+    return;
 });
 client.once('disconnect', () => {
     console.log('Disconnect!');
+    return;
 });
 client.on('message', async message => {
     if(message.author.bot) return;
@@ -102,4 +105,16 @@ function play(guild, song){
         console.error(error);
     });
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+}
+
+function skip(message, serverQueue){
+    if(!message.member.voiceChannel) return message.channel.send('Tenes que estar en un voice channel para hacer skip man dale media pila');
+    if(!serverQueue) return message.channel.send('Re que no hay ninguna cancion para skipear sos tonto?');
+    serverQueue.connection.dispatcher.end();
+}
+
+function stop(message, serverQueue){
+    if(!message.member.voiceChannel) return message.channel.send('Tenes que estar en un voice channel para hacer stop man dale media pila');
+    serverQueue.songs = [];
+    serverQueue.connection.dispatcher.end();
 }
