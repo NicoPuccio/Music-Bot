@@ -1,0 +1,25 @@
+{
+  "name": "musicbot",
+  "version": "1.0.0",
+  "description": "A music bot for the discord app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicoPuccio/Music-Bot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicoPuccio/Music-Bot/issues"
+  },
+  "homepage": "https://github.com/NicoPuccio/Music-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^3.1.1"
+  }
+}
